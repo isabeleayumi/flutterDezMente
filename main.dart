@@ -1,6 +1,7 @@
+import 'package:dezmenteflutter/widgets/avancar.widget.dart';
+import 'package:dezmenteflutter/widgets/logo.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 
 void main() {
   runApp(App());
@@ -10,11 +11,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Dez Mente",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.cyan),
-      home: HomePage(),
-    );
+        title: "Dez Mente",
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.cyan),
+        home: HomePage(),
+        routes: <String, WidgetBuilder>{
+          "/Cadastro": (BuildContext context) => Cadastro1(),
+        });
   }
 }
 
@@ -25,10 +28,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         body: ListView(
           children: <Widget>[
-            SizedBox(
-              height: 50,
-            ),
-            Image.asset("assets/images/logo.png", height: 310),
+            Logo(),
             Container(
               margin: EdgeInsets.all(30),
               height: 80,
@@ -87,27 +87,9 @@ class Cadastro extends StatelessWidget {
             ),
             Image.asset("assets/images/introducao.png", height: 350),
             Image.asset("assets/images/zunokansei.png", height: 200),
-            Container(
-                margin: EdgeInsets.all(30),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8),
-                    borderRadius: BorderRadius.circular(
-                      60,
-                    )),
-                child: FlatButton(
-                  child: Text("AVANÇAR",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold)),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Cadastro1()),
-                    );
-                  },
-                )),
+            Avancar(
+              labelPage: '/Cadastro',
+            ),
           ],
         ));
   }
@@ -552,76 +534,82 @@ class Teste1i extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: ListView(
-          children: <Widget>[
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/1ver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/2ver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/3ver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/4ver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/5ver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/Aver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/Bver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/Cver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/Dver.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/Ever.png", height: 70),
-            SizedBox(
-              height: 5,
-            ),
-            Image.asset("assets/images/barratestes.png", height: 70),
-            Container(
-                margin: EdgeInsets.all(30),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.pink[400].withOpacity(0.7),
-                    borderRadius: BorderRadius.circular(
-                      60,
+      backgroundColor: Colors.white,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/1ver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/2ver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/3ver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/4ver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/5ver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/Aver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/Bver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/Cver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/Dver.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset("assets/images/Ever.png", height: 70),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                    margin: EdgeInsets.all(30),
+                    height: 50,
+                    decoration: BoxDecoration(
+                        color: Colors.pink[400].withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(
+                          60,
+                        )),
+                    child: FlatButton(
+                      child: Text("AVANÇAR",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Teste2()),
+                        );
+                      },
                     )),
-                child: FlatButton(
-                  child: Text("AVANÇAR",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold)),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Teste2()),
-                    );
-                  },
-                )),
-          ],
-        ));
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -1985,3 +1973,4 @@ class Teste11i extends StatelessWidget {
         ));
   }
 }
+
