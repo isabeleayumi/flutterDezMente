@@ -1,0 +1,175 @@
+name: dezmenteflutter
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.0
+  audioplayers: ^0.16.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/logo.png
+    - assets/images/introducao.png
+    - assets/images/zunokansei.png
+    - assets/images/monitor.png
+    - assets/images/instrucoesteste.png
+    - assets/images/instrucoesteste2.png
+    - assets/images/molduraazul.png
+    - assets/images/teste1inst.png
+    - assets/images/teste1mold.png
+    - assets/images/1az.png
+    - assets/images/2az.png
+    - assets/images/3az.png
+    - assets/images/1ver.png
+    - assets/images/2ver.png
+    - assets/images/3ver.png
+    - assets/images/4ver.png
+    - assets/images/5ver.png
+    - assets/images/Aver.png
+    - assets/images/Bver.png
+    - assets/images/Cver.png
+    - assets/images/Dver.png
+    - assets/images/Ever.png
+    - assets/images/apple.jpg
+    - assets/images/banana.jpg
+    - assets/images/barrarelogio.png
+    - assets/images/barratestes.png
+    - assets/images/coffee.jpg
+    - assets/images/cubo.png
+    - assets/images/cubobarra.png
+    - assets/images/hist1.png
+    - assets/images/hist2.png
+    - assets/images/hist3.png
+    - assets/images/histperg.png
+    - assets/images/instrucoesteste.png
+    - assets/images/instrucoesteste2.png
+    - assets/images/mariposa.png
+    - assets/images/oncapintada.png
+    - assets/images/relogio.png
+    - assets/images/teste2inst.png
+    - assets/images/teste2mold.png
+    - assets/images/teste3inst.png
+    - assets/images/teste3mold.png
+    - assets/images/teste4inst.png
+    - assets/images/teste4mold.png
+    - assets/images/teste5mold.png
+    - assets/images/teste5inst.png
+    - assets/images/teste6A.png
+    - assets/images/teste6clique.png
+    - assets/images/teste6inst.png
+    - assets/images/teste6mold.png
+    - assets/images/teste7mold.png
+    - assets/images/teste7inst.png
+    - assets/images/teste8cinco.png
+    - assets/images/teste8dois.png
+    - assets/images/teste8inst.png
+    - assets/images/teste8mold.png
+    - assets/images/teste8oito.png
+    - assets/images/teste8quatro.png
+    - assets/images/teste8seis.png
+    - assets/images/teste8sete.png
+    - assets/images/teste8tres.png
+    - assets/images/teste8um.png
+    - assets/images/teste9cinco.png
+    - assets/images/teste9dois.png
+    - assets/images/teste9mold.png
+    - assets/images/teste9inst.png
+    - assets/images/teste9nove.png
+    - assets/images/teste9oito.png
+    - assets/images/teste9quarta.png
+    - assets/images/teste9seis.png
+    - assets/images/teste9sete.png
+    - assets/images/teste9tres.png
+    - assets/images/teste9um.png
+    - assets/images/teste10inst.png
+    - assets/images/teste10mold.png
+    - assets/images/teste11hist.png
+    - assets/images/teste11inst.png
+    - assets/images/teste11mold.png
+    - assets/images/zebra.png
+    - assets/audio/zuno1.mp3
+    - assets/audio/zuno-2.mp3
+    - assets/audio/zuno-3.mp3
+    - assets/audio/zuno-4.mp3
+    - assets/audio/zuno-5.mp3
+    - assets/audio/zuno-6.mp3
+    - assets/audio/zuno-7.mp3
+    - assets/audio/zuno-8.mp3
+    - assets/audio/zuno-9.mp3
+    - assets/audio/zuno-10.mp3
+    - assets/audio/zuno-11.mp3
+    - assets/audio/zuno-12.mp3
+    - assets/audio/zuno-13.mp3
+    - assets/audio/zuno-14.mp3
+    - assets/audio/zuno-15.mp3
+    - assets/audio/zuno-25.mp3
+    - assets/audio/zuno-16.mp3
+    - assets/audio/zuno-17.mp3
+    - assets/audio/zuno-18.mp3
+    - assets/audio/zuno-19.mp3
+    - assets/audio/zuno-20.mp3
+    - assets/audio/zuno-21.mp3
+    - assets/audio/zuno-22.mp3
+    - assets/audio/zuno-23.mp3
+    - assets/audio/zuno-24.mp3
+
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
