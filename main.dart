@@ -1,6 +1,7 @@
 import 'package:dezmenteflutter/widgets/avancar.widget.dart';
 import 'package:dezmenteflutter/widgets/logo.widget.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +70,7 @@ class HomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Cadastro()),
                     );
+                    player.play('audio/zuno1.mp3');
                   },
                 ))
           ],
@@ -75,7 +78,13 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class Cadastro extends StatelessWidget {
+class Cadastro extends StatefulWidget {
+  @override
+  _CadastroState createState() => _CadastroState();
+}
+
+class _CadastroState extends State<Cadastro> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,24 +99,61 @@ class Cadastro extends StatelessWidget {
             Avancar(
               labelPage: '/Cadastro',
             ),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno1.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
           ],
         ));
   }
 }
 
-class Cadastro1 extends StatelessWidget {
+class Cadastro1 extends StatefulWidget {
+  @override
+  _Cadastro1State createState() => _Cadastro1State();
+}
+
+class _Cadastro1State extends State<Cadastro1> {
+  final player = AudioCache();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
-        body: ListView(
-          children: <Widget>[
-            SizedBox(
-              height: 10,
+      backgroundColor: Theme.of(context).primaryColor,
+      body: ListView(
+        children: <Widget>[
+          SizedBox(
+            height: 10,
+          ),
+          Image.asset("assets/images/monitor.png", height: 300),
+          Image.asset("assets/images/zunokansei.png", height: 150),
+          Container(
+            margin: EdgeInsets.all(30),
+            height: 40,
+            decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.8),
+                borderRadius: BorderRadius.circular(
+                  60,
+                )),
+            child: FlatButton(
+              child: Text("SIM",
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Cmonitor()),
+                );
+              },
             ),
-            Image.asset("assets/images/monitor.png", height: 300),
-            Image.asset("assets/images/zunokansei.png", height: 150),
-            Container(
+          ),
+          Container(
               margin: EdgeInsets.all(30),
               height: 40,
               decoration: BoxDecoration(
@@ -116,36 +162,24 @@ class Cadastro1 extends StatelessWidget {
                     60,
                   )),
               child: FlatButton(
-                child: Text("SIM",
+                child: Text("NÃO",
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 30,
                         fontWeight: FontWeight.bold)),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Cmonitor()),
-                  );
-                },
-              ),
+                onPressed: () {},
+              )),
+          Container(
+            child: FloatingActionButton(
+              onPressed: () {
+                player.play('audio/zuno-2.mp3');
+              },
+              child: Icon(Icons.play_arrow),
             ),
-            Container(
-                margin: EdgeInsets.all(30),
-                height: 40,
-                decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8),
-                    borderRadius: BorderRadius.circular(
-                      60,
-                    )),
-                child: FlatButton(
-                    child: Text("NÃO",
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
-                    onPressed: () {}))
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -279,7 +313,13 @@ class Cmonitor extends StatelessWidget {
   }
 }
 
-class Cadastro2 extends StatelessWidget {
+class Cadastro2 extends StatefulWidget {
+  @override
+  _Cadastro2State createState() => _Cadastro2State();
+}
+
+class _Cadastro2State extends State<Cadastro2> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -402,6 +442,7 @@ class Cadastro2 extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => Instrucoes()),
                         );
+                        player.play('audio/zuno-3.mp3');
                       },
                     )),
               ],
@@ -409,7 +450,13 @@ class Cadastro2 extends StatelessWidget {
   }
 }
 
-class Instrucoes extends StatelessWidget {
+class Instrucoes extends StatefulWidget {
+  @override
+  _InstrucoesState createState() => _InstrucoesState();
+}
+
+class _InstrucoesState extends State<Instrucoes> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -440,14 +487,29 @@ class Instrucoes extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Instrucoes2()),
                     );
+                    player.play('audio/zuno-4.mp3');
                   },
                 )),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-3.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
           ],
         ));
   }
 }
 
-class Instrucoes2 extends StatelessWidget {
+class Instrucoes2 extends StatefulWidget {
+  @override
+  _Instrucoes2State createState() => _Instrucoes2State();
+}
+
+class _Instrucoes2State extends State<Instrucoes2> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -478,14 +540,29 @@ class Instrucoes2 extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste1()),
                     );
+                    player.play('audio/zuno-5.mp3');
                   },
                 )),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-4.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
           ],
         ));
   }
 }
 
-class Teste1 extends StatelessWidget {
+class Teste1 extends StatefulWidget {
+  @override
+  _Teste1State createState() => _Teste1State();
+}
+
+class _Teste1State extends State<Teste1> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -504,6 +581,14 @@ class Teste1 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-5.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -530,90 +615,109 @@ class Teste1 extends StatelessWidget {
   }
 }
 
-class Teste1i extends StatelessWidget {
+class Teste1i extends StatefulWidget {
+  @override
+  _Teste1iState createState() => _Teste1iState();
+}
+
+class _Teste1iState extends State<Teste1i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
+      body: Stack(
         children: <Widget>[
-          Expanded(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/1ver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/2ver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/3ver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/4ver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/5ver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/Aver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/Bver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/Cver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/Dver.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset("assets/images/Ever.png", height: 70),
-                SizedBox(
-                  height: 5,
-                ),
-                Container(
-                    margin: EdgeInsets.all(30),
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Colors.pink[400].withOpacity(0.7),
-                        borderRadius: BorderRadius.circular(
-                          60,
-                        )),
-                    child: FlatButton(
-                      child: Text("AVANÇAR",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold)),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Teste2()),
-                        );
-                      },
-                    )),
-              ],
-            ),
+          Positioned(
+            top: 260,
+            left: 90,
+            height: 75,
+            child: Image.asset("assets/images/1ver.png"),
           ),
+          Positioned(
+            top: 160,
+            right: 20,
+            height: 75,
+            child: Image.asset("assets/images/2ver.png"),
+          ),
+          Positioned(
+            right: 45,
+            bottom: 270,
+            height: 75,
+            child: Image.asset("assets/images/3ver.png"),
+          ),
+          Positioned(
+            right: 180,
+            bottom: 250,
+            height: 75,
+            child: Image.asset("assets/images/4ver.png"),
+          ),
+          Positioned(
+            left: 20,
+            top: 160,
+            height: 75,
+            child: Image.asset("assets/images/5ver.png"),
+          ),
+          Positioned(
+            right: 100,
+            top: 40,
+            height: 75,
+            child: Image.asset("assets/images/Aver.png"),
+          ),
+          Positioned(
+            right: 120,
+            top: 230,
+            height: 75,
+            child: Image.asset("assets/images/Bver.png"),
+          ),
+          Positioned(
+            left: 45,
+            bottom: 120,
+            height: 75,
+            child: Image.asset("assets/images/Cver.png"),
+          ),
+          Positioned(
+            left: 20,
+            bottom: 280,
+            height: 75,
+            child: Image.asset("assets/images/Dver.png"),
+          ),
+          Positioned(
+            left: 60,
+            top: 30,
+            height: 75,
+            child: Image.asset("assets/images/Ever.png"),
+          ),
+          // Container(
+          //   child: FlatButton(
+          //     child: Text("AVANÇAR",
+          //         style: TextStyle(
+          //             color: Colors.white,
+          //             fontSize: 30,
+          //             height: 100,
+          //             fontWeight: FontWeight.bold)),
+          //     onPressed: () {
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(builder: (context) => Teste2()),
+          //       );
+          //       player.play('audio/zuno-6.mp3');
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );
   }
 }
 
-class Teste2 extends StatelessWidget {
+class Teste2 extends StatefulWidget {
+  @override
+  _Teste2State createState() => _Teste2State();
+}
+
+class _Teste2State extends State<Teste2> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -632,6 +736,14 @@ class Teste2 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-6.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -658,7 +770,13 @@ class Teste2 extends StatelessWidget {
   }
 }
 
-class Teste2i extends StatelessWidget {
+class Teste2i extends StatefulWidget {
+  @override
+  _Teste2iState createState() => _Teste2iState();
+}
+
+class _Teste2iState extends State<Teste2i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -692,6 +810,7 @@ class Teste2i extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste3()),
                     );
+                    player.play('audio/zuno-7.mp3');
                   },
                 )),
           ],
@@ -699,7 +818,13 @@ class Teste2i extends StatelessWidget {
   }
 }
 
-class Teste3 extends StatelessWidget {
+class Teste3 extends StatefulWidget {
+  @override
+  _Teste3State createState() => _Teste3State();
+}
+
+class _Teste3State extends State<Teste3> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -718,6 +843,14 @@ class Teste3 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-7.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -744,7 +877,13 @@ class Teste3 extends StatelessWidget {
   }
 }
 
-class Teste3i extends StatelessWidget {
+class Teste3i extends StatefulWidget {
+  @override
+  _Teste3iState createState() => _Teste3iState();
+}
+
+class _Teste3iState extends State<Teste3i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -778,6 +917,7 @@ class Teste3i extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste4()),
                     );
+                    player.play('audio/zuno-8.mp3');
                   },
                 )),
           ],
@@ -785,7 +925,13 @@ class Teste3i extends StatelessWidget {
   }
 }
 
-class Teste4 extends StatelessWidget {
+class Teste4 extends StatefulWidget {
+  @override
+  _Teste4State createState() => _Teste4State();
+}
+
+class _Teste4State extends State<Teste4> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -804,6 +950,14 @@ class Teste4 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-8.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -924,7 +1078,13 @@ class Teste4i2 extends StatelessWidget {
   }
 }
 
-class Teste4i3 extends StatelessWidget {
+class Teste4i3 extends StatefulWidget {
+  @override
+  _Teste4i3State createState() => _Teste4i3State();
+}
+
+class _Teste4i3State extends State<Teste4i3> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -964,6 +1124,7 @@ class Teste4i3 extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste5()),
                     );
+                    player.play('audio/zuno-9.mp3');
                   },
                 )),
           ],
@@ -971,7 +1132,13 @@ class Teste4i3 extends StatelessWidget {
   }
 }
 
-class Teste5 extends StatelessWidget {
+class Teste5 extends StatefulWidget {
+  @override
+  _Teste5State createState() => _Teste5State();
+}
+
+class _Teste5State extends State<Teste5> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -991,6 +1158,14 @@ class Teste5 extends StatelessWidget {
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
             Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-9.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
+            Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
                 decoration: BoxDecoration(
@@ -1009,6 +1184,7 @@ class Teste5 extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste5i()),
                     );
+                    player.play('audio/zuno-10.mp3');
                   },
                 )),
           ],
@@ -1016,7 +1192,13 @@ class Teste5 extends StatelessWidget {
   }
 }
 
-class Teste5i extends StatelessWidget {
+class Teste5i extends StatefulWidget {
+  @override
+  _Teste5iState createState() => _Teste5iState();
+}
+
+class _Teste5iState extends State<Teste5i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1036,6 +1218,14 @@ class Teste5i extends StatelessWidget {
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
             Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-10.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
+            Container(
                 margin: EdgeInsets.all(30),
                 height: 35,
                 decoration: BoxDecoration(
@@ -1054,6 +1244,7 @@ class Teste5i extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste5i1()),
                     );
+                    player.play('audio/zuno-11.mp3');
                   },
                 )),
           ],
@@ -1061,7 +1252,13 @@ class Teste5i extends StatelessWidget {
   }
 }
 
-class Teste5i1 extends StatelessWidget {
+class Teste5i1 extends StatefulWidget {
+  @override
+  _Teste5i1State createState() => _Teste5i1State();
+}
+
+class _Teste5i1State extends State<Teste5i1> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1072,6 +1269,14 @@ class Teste5i1 extends StatelessWidget {
               height: 0,
             ),
             Image.asset("assets/images/hist2.png", height: 500),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-11.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 35,
@@ -1091,6 +1296,7 @@ class Teste5i1 extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste5i2()),
                     );
+                    player.play('audio/zuno-12.mp3');
                   },
                 )),
           ],
@@ -1098,7 +1304,13 @@ class Teste5i1 extends StatelessWidget {
   }
 }
 
-class Teste5i2 extends StatelessWidget {
+class Teste5i2 extends StatefulWidget {
+  @override
+  _Teste5i2State createState() => _Teste5i2State();
+}
+
+class _Teste5i2State extends State<Teste5i2> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1109,6 +1321,14 @@ class Teste5i2 extends StatelessWidget {
               height: 0,
             ),
             Image.asset("assets/images/hist3.png", height: 500),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-12.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 35,
@@ -1128,6 +1348,7 @@ class Teste5i2 extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste6()),
                     );
+                    player.play('audio/zuno-13.mp3');
                   },
                 )),
           ],
@@ -1135,7 +1356,13 @@ class Teste5i2 extends StatelessWidget {
   }
 }
 
-class Teste6 extends StatelessWidget {
+class Teste6 extends StatefulWidget {
+  @override
+  _Teste6State createState() => _Teste6State();
+}
+
+class _Teste6State extends State<Teste6> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1154,6 +1381,14 @@ class Teste6 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-13.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -1180,7 +1415,13 @@ class Teste6 extends StatelessWidget {
   }
 }
 
-class Teste6i extends StatelessWidget {
+class Teste6i extends StatefulWidget {
+  @override
+  _Teste6iState createState() => _Teste6iState();
+}
+
+class _Teste6iState extends State<Teste6i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1214,6 +1455,7 @@ class Teste6i extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste7()),
                     );
+                    player.play('audio/zuno-14.mp3');
                   },
                 )),
           ],
@@ -1221,7 +1463,13 @@ class Teste6i extends StatelessWidget {
   }
 }
 
-class Teste7 extends StatelessWidget {
+class Teste7 extends StatefulWidget {
+  @override
+  _Teste7State createState() => _Teste7State();
+}
+
+class _Teste7State extends State<Teste7> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1240,6 +1488,14 @@ class Teste7 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-14.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -1266,7 +1522,13 @@ class Teste7 extends StatelessWidget {
   }
 }
 
-class Teste7i extends StatelessWidget {
+class Teste7i extends StatefulWidget {
+  @override
+  _Teste7iState createState() => _Teste7iState();
+}
+
+class _Teste7iState extends State<Teste7i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1304,6 +1566,7 @@ class Teste7i extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste8()),
                     );
+                    player.play('audio/zuno-15.mp3');
                   },
                 )),
           ],
@@ -1311,7 +1574,13 @@ class Teste7i extends StatelessWidget {
   }
 }
 
-class Teste8 extends StatelessWidget {
+class Teste8 extends StatefulWidget {
+  @override
+  _Teste8State createState() => _Teste8State();
+}
+
+class _Teste8State extends State<Teste8> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1330,6 +1599,14 @@ class Teste8 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-15.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -1356,7 +1633,13 @@ class Teste8 extends StatelessWidget {
   }
 }
 
-class Teste8i extends StatelessWidget {
+class Teste8i extends StatefulWidget {
+  @override
+  _Teste8iState createState() => _Teste8iState();
+}
+
+class _Teste8iState extends State<Teste8i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1414,6 +1697,7 @@ class Teste8i extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste9()),
                     );
+                    player.play('audio/zuno-25.mp3');
                   },
                 )),
           ],
@@ -1421,7 +1705,13 @@ class Teste8i extends StatelessWidget {
   }
 }
 
-class Teste9 extends StatelessWidget {
+class Teste9 extends StatefulWidget {
+  @override
+  _Teste9State createState() => _Teste9State();
+}
+
+class _Teste9State extends State<Teste9> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1440,6 +1730,14 @@ class Teste9 extends StatelessWidget {
               height: 10,
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
+            Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-25.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
             Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
@@ -1466,7 +1764,13 @@ class Teste9 extends StatelessWidget {
   }
 }
 
-class Teste9i extends StatelessWidget {
+class Teste9i extends StatefulWidget {
+  @override
+  _Teste9iState createState() => _Teste9iState();
+}
+
+class _Teste9iState extends State<Teste9i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1528,6 +1832,7 @@ class Teste9i extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste10()),
                     );
+                    player.play('audio/zuno-16.mp3');
                   },
                 )),
           ],
@@ -1535,7 +1840,13 @@ class Teste9i extends StatelessWidget {
   }
 }
 
-class Teste10 extends StatelessWidget {
+class Teste10 extends StatefulWidget {
+  @override
+  _Teste10State createState() => _Teste10State();
+}
+
+class _Teste10State extends State<Teste10> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1555,6 +1866,14 @@ class Teste10 extends StatelessWidget {
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
             Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-16.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
+            Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
                 decoration: BoxDecoration(
@@ -1573,6 +1892,7 @@ class Teste10 extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste10i()),
                     );
+                    player.play('audio/zuno-17.mp3');
                   },
                 )),
           ],
@@ -1580,7 +1900,13 @@ class Teste10 extends StatelessWidget {
   }
 }
 
-class Teste10i extends StatelessWidget {
+class Teste10i extends StatefulWidget {
+  @override
+  _Teste10iState createState() => _Teste10iState();
+}
+
+class _Teste10iState extends State<Teste10i> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1625,6 +1951,7 @@ class Teste10i extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => Teste10i1()),
                         );
+                        player.play('audio/zuno-18.mp3');
                       },
                     )),
               ],
@@ -1632,7 +1959,13 @@ class Teste10i extends StatelessWidget {
   }
 }
 
-class Teste10i1 extends StatelessWidget {
+class Teste10i1 extends StatefulWidget {
+  @override
+  _Teste10i1State createState() => _Teste10i1State();
+}
+
+class _Teste10i1State extends State<Teste10i1> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1677,6 +2010,7 @@ class Teste10i1 extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => Teste10i2()),
                         );
+                        player.play('audio/zuno-19.mp3');
                       },
                     )),
               ],
@@ -1684,7 +2018,13 @@ class Teste10i1 extends StatelessWidget {
   }
 }
 
-class Teste10i2 extends StatelessWidget {
+class Teste10i2 extends StatefulWidget {
+  @override
+  _Teste10i2State createState() => _Teste10i2State();
+}
+
+class _Teste10i2State extends State<Teste10i2> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1729,6 +2069,7 @@ class Teste10i2 extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => Teste10i3()),
                         );
+                        player.play('audio/zuno-20.mp3');
                       },
                     )),
               ],
@@ -1736,7 +2077,13 @@ class Teste10i2 extends StatelessWidget {
   }
 }
 
-class Teste10i3 extends StatelessWidget {
+class Teste10i3 extends StatefulWidget {
+  @override
+  _Teste10i3State createState() => _Teste10i3State();
+}
+
+class _Teste10i3State extends State<Teste10i3> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1781,6 +2128,7 @@ class Teste10i3 extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => Teste10i4()),
                         );
+                        player.play('audio/zuno-21.mp3');
                       },
                     )),
               ],
@@ -1788,7 +2136,13 @@ class Teste10i3 extends StatelessWidget {
   }
 }
 
-class Teste10i4 extends StatelessWidget {
+class Teste10i4 extends StatefulWidget {
+  @override
+  _Teste10i4State createState() => _Teste10i4State();
+}
+
+class _Teste10i4State extends State<Teste10i4> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1833,6 +2187,7 @@ class Teste10i4 extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => Teste10i5()),
                         );
+                        player.play('audio/zuno-22.mp3');
                       },
                     )),
               ],
@@ -1840,7 +2195,13 @@ class Teste10i4 extends StatelessWidget {
   }
 }
 
-class Teste10i5 extends StatelessWidget {
+class Teste10i5 extends StatefulWidget {
+  @override
+  _Teste10i5State createState() => _Teste10i5State();
+}
+
+class _Teste10i5State extends State<Teste10i5> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1885,6 +2246,7 @@ class Teste10i5 extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => Teste11()),
                         );
+                        player.play('audio/zuno-23.mp3');
                       },
                     )),
               ],
@@ -1892,7 +2254,13 @@ class Teste10i5 extends StatelessWidget {
   }
 }
 
-class Teste11 extends StatelessWidget {
+class Teste11 extends StatefulWidget {
+  @override
+  _Teste11State createState() => _Teste11State();
+}
+
+class _Teste11State extends State<Teste11> {
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1912,6 +2280,14 @@ class Teste11 extends StatelessWidget {
             ),
             Image.asset("assets/images/zunokansei.png", height: 100),
             Container(
+              child: FloatingActionButton(
+                onPressed: () {
+                  player.play('audio/zuno-23.mp3');
+                },
+                child: Icon(Icons.play_arrow),
+              ),
+            ),
+            Container(
                 margin: EdgeInsets.all(30),
                 height: 50,
                 decoration: BoxDecoration(
@@ -1930,6 +2306,7 @@ class Teste11 extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Teste11i()),
                     );
+                    player.play('audio/zuno-24.mp3');
                   },
                 )),
           ],
@@ -1973,4 +2350,3 @@ class Teste11i extends StatelessWidget {
         ));
   }
 }
-
