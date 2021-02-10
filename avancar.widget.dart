@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 // ignore: must_be_immutable
 class Avancar extends StatelessWidget {
@@ -7,7 +8,7 @@ class Avancar extends StatelessWidget {
   Avancar({
     @required this.labelPage,
   });
-
+  final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,6 +28,7 @@ class Avancar extends StatelessWidget {
                 fontWeight: FontWeight.bold)),
         onPressed: () {
           Navigator.pushNamed(context, labelPage);
+          player.play('audio/zuno-2.mp3');
         },
       ),
     );
